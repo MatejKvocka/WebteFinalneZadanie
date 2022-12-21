@@ -2,4 +2,6 @@ Tu budeme písať poznámky
 
 Puzzle hra plán:
 1.urobiť git (hotovo)
-2.
+2.obrazky(hotovo)
+3.json(hotovo)
+4.puzzle(okopirovane)
