@@ -5,12 +5,7 @@
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link rel="stylesheet" href="vendor/style.css">
-    <script
-    src="https://code.jquery.com/jquery-3.6.0.min.js"
-    integrity="sha256-/xUj+3OJU5yExlq6GSYGSHk7tPXikynS7ogEvDej/m4="
-    crossorigin="anonymous"
-    ></script>
-    <link href="vendor/style.css" rel="stylesheet" />
+    <script src="https://code.jquery.com/jquery-3.6.0.min.js" integrity="sha256-/xUj+3OJU5yExlq6GSYGSHk7tPXikynS7ogEvDej/m4=" crossorigin="anonymous"></script>
     <link href="vendor/image-puzzle.css" rel="stylesheet" />
     <script src="javascript/jquery-2.1.1.min.js"></script>
     <script src="javascript/jquery-ui.js"></script>
@@ -59,36 +54,36 @@
                 </div>
             </div>
         </div>
+    </div>
 
-        <script>
+    <script>
 
-            $.getJSON("fotkyJson.json", function(myJson) {
-                
-            var images = [
-                { src: myJson[0].filePath, title: 'Bora Bora, French Polynesia' },
-                { src: myJson[1].filePath, title: 'Ha Long Bay, Vietnam' },
-                { src: myJson[2].filePath, title: 'Machu Picchu, Peru' },
-                { src: myJson[3].filePath, title: 'Edinburgh, Scotland' },
-				{ src: myJson[4].filePath, title: 'Hawaii' },
-            ];
+        $.getJSON("fotkyJson.json", function(myJson) {
+            
+        var images = [
+            { src: myJson[0].filePath, title: myJson[0].nameOfPicture },
+            { src: myJson[1].filePath, title: myJson[1].nameOfPicture },
+            { src: myJson[2].filePath, title: myJson[2].nameOfPicture },
+            { src: myJson[3].filePath, title: myJson[3].nameOfPicture },
+            { src: myJson[4].filePath, title: myJson[4].nameOfPicture },
+        ];
 
-            $(function () {
+        $(function () {
+            var gridSize = $('#levelPanel :radio:checked').val();
+            imagePuzzle.startGame(images, gridSize);
+            $('#newPhoto').click(function () {
                 var gridSize = $('#levelPanel :radio:checked').val();
                 imagePuzzle.startGame(images, gridSize);
-                $('#newPhoto').click(function () {
-                    var gridSize = $('#levelPanel :radio:checked').val();
-                    imagePuzzle.startGame(images, gridSize);
-                });
+            });
 
-                $('#levelPanel :radio').change(function (e) {
-                    var gridSize = $(this).val();
-                    imagePuzzle.startGame(images, gridSize);
-                });
+            $('#levelPanel :radio').change(function (e) {
+                var gridSize = $(this).val();
+                imagePuzzle.startGame(images, gridSize);
             });
-            });
-         
-        </script>
-    </div>
+        });
+        });
+     
+    </script>
 
 <script type="text/javascript" src="javascript/script.js"></script>
 </body>
