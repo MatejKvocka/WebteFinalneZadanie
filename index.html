@@ -5,25 +5,15 @@
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link rel="stylesheet" href="vendor/style.css"> 
-    <script src="https://code.jquery.com/jquery-3.6.0.min.js" integrity="sha256-/xUj+3OJU5yExlq6GSYGSHk7tPXikynS7ogEvDej/m4=" crossorigin="anonymous"></script>
-    <script
-    src="https://code.jquery.com/jquery-3.6.0.min.js"
-    integrity="sha256-/xUj+3OJU5yExlq6GSYGSHk7tPXikynS7ogEvDej/m4="
-    crossorigin="anonymous"
-    ></script>
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.2.2/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-Zenh87qX5JnK2Jl0vWa8Ck2rdkQ2Bzep5IDxbcnCeuOxjzrPF/et3URy9Bv1WTRi" crossorigin="anonymous">  
     <script defer src="https://cdn.jsdelivr.net/npm/bootstrap@5.2.2/dist/js/bootstrap.bundle.min.js" integrity="sha384-OERcA2EqjJCMA+/3y+gxIOqMEjwtxJY7qPCqsdltbNJuaOe923+mo//f6V8Qbsw3" crossorigin="anonymous"></script>
-    <script src="javascript/jquery-2.1.1.min.js"></script>
-    <script src="javascript/jquery-ui.js"></script>
-    <script src="javascript/image-puzzle.js"></script>
-    <title>Marko je skurveny farizej</title>
+    <title>Document</title>
 </head>
 <body>
-
     <div>
         <nav class="navbar navbar-dark bg-dark fixed-top">
             <div class="container-fluid">
-              <a class="navbar-brand" href="index.html">Puzzle</a>
+              <a class="navbar-brand" href="index.html">Návod</a>
               <button class="navbar-toggler" type="button" data-bs-toggle="offcanvas" data-bs-target="#offcanvasDarkNavbar" aria-controls="offcanvasDarkNavbar">
                 <span class="navbar-toggler-icon"></span>
               </button>
@@ -35,10 +25,10 @@
                 <div class="offcanvas-body">
                   <ul class="navbar-nav justify-content-end flex-grow-1 pe-3">
                     <li class="nav-item">
-                      <a class="nav-link active" aria-current="page" href="index.html">Domov</a>
+                      <a class="nav-link active" aria-current="page" href="index.html">Návod</a>
                     </li>
                     <li class="nav-item">
-                      <a class="nav-link" href="">Sinusoida</a>
+                      <a class="nav-link" href="puzzle.html">Puzzle</a>
                     </li>
                   </ul>
                 </div>
@@ -46,83 +36,14 @@
             </div>
           </nav>
     </div>
-
+    
     <div id="collage">
-        <h2>Puzzle</h2>
-        <hr />
-        <div id="playPanel" style="padding:5px;display:none;">
-            <h3 id="imgTitle"></h3> <hr />
-            <div style="display:inline-block; margin:auto; width:95%; vertical-align:top;">
-                <ul id="sortable" class="sortable"></ul>
-                <div id="actualImageBox">
-                    <div id="stepBox">
-                        <div>Count:</div><div class="stepCount">0</div>
-                    </div>
-                    <div id="timeBox">
-                        Time: <span id="timerPanel"></span> seconds
-                    </div>
-                    <img id="actualImage" />
-                    <div>Solve the puzzle.</div>
-                    <p id="levelPanel">
-                        <input type="radio" name="level" id="easy" checked="checked" value="3" /> <label for="easy">Easy</label>
-                        <input type="radio" name="level" id="medium" value="4" /> <label for="medium">Medium</label>
-                        <input type="radio" name="level" id="hard" value="5" /> <label for="hard">Hard</label>
-						<input type="radio" name="level" id="veryhard" value="6" /> <label for="veryhard">Very Hard</label>
-                    </p>
-                    <div>
-                        <button id="newPhoto" type="button" class="btn">Next</button>
-                    </div>
-                </div>
-            </div>
-        </div>
-        <div id="gameOver" style="display:none;">
-            <div style="background-color: #C4F2EE; padding: 5px 10px 20px 10px; text-align: center; ">
-                <h2 style="text-align:center">You win!</h2>
-                Congratulations!! <br />
-                <br />
-                Time: <span class="stepCount">0</span> gear.
-                <br />
-                Time spent: <span class="timeCount">0</span> seconds<br />
-                <div>
-                    <button type="button" onclick="window.location.reload(true);">Play more</button>
-                </div>
-            </div>
-        </div>
+        <h2>Návod</h2>
     </div>
 
     <footer id="f1">
         <div class="footer">&copy;<span id="year">2022</span><span> Kvočka and Matúška. All rights reserved.</span></div>
     </footer>
 
-    <script>
-
-        $.getJSON("fotkyJson.json", function(myJson) {
-            
-        var images = [
-            { src: myJson[0].filePath, title: myJson[0].nameOfPicture },
-            { src: myJson[1].filePath, title: myJson[1].nameOfPicture },
-            { src: myJson[2].filePath, title: myJson[2].nameOfPicture },
-            { src: myJson[3].filePath, title: myJson[3].nameOfPicture },
-            { src: myJson[4].filePath, title: myJson[4].nameOfPicture },
-        ];
-
-        $(function () {
-            var gridSize = $('#levelPanel :radio:checked').val();
-            imagePuzzle.startGame(images, gridSize);
-            $('#newPhoto').click(function () {
-                var gridSize = $('#levelPanel :radio:checked').val();
-                imagePuzzle.startGame(images, gridSize);
-            });
-
-            $('#levelPanel :radio').change(function (e) {
-                var gridSize = $(this).val();
-                imagePuzzle.startGame(images, gridSize);
-            });
-        });
-        });
-     
-    </script>
-
-<script type="text/javascript" src="javascript/script.js"></script>
 </body>
 </html>
