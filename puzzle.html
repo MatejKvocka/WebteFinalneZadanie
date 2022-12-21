@@ -107,16 +107,21 @@
         ];
 
         $(function () {
+            var i = 0;
             var gridSize = $('#levelPanel :radio:checked').val();
-            imagePuzzle.startGame(images, gridSize);
+            imagePuzzle.startGame(images, gridSize,i);
             $('#newPhoto').click(function () {
                 var gridSize = $('#levelPanel :radio:checked').val();
-                imagePuzzle.startGame(images, gridSize);
+                i = i+1;
+                if(parseInt(i)==5){
+                    console.log("PICUS")
+                    i=0;
+                }
+                imagePuzzle.startGame(images, gridSize,i);
             });
 
             $('#levelPanel :radio').change(function (e) {
-                var gridSize = $(this).val();
-                imagePuzzle.startGame(images, gridSize);
+                imagePuzzle.startGame(images, gridSize,i);
             });
         });
         });

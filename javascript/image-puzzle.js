@@ -3,8 +3,8 @@
 var imagePuzzle = {
     stepCount: 0,
     startTime: new Date().getTime(),
-    startGame: function (images, gridSize) {
-        this.setImage(images, gridSize);
+    startGame: function (images, gridSize, i) {
+        this.setImage(images, gridSize,i);
         $('#playPanel').show();
         $('#sortable').randomize();
         this.enableSwapping('#sortable li');
@@ -46,12 +46,13 @@ var imagePuzzle = {
         });
     },
 
-    setImage: function (images, gridSize) {
+    setImage: function (images, gridSize,i) {
         console.log(gridSize);
         gridSize = gridSize || 4; // If gridSize is null or not passed, default it as 4.
         console.log(gridSize);
         var percentage = 100 / (gridSize - 1);
-        var image = images[Math.floor(Math.random() * images.length)];
+        
+        var image = images[i];
         $('#imgTitle').html(image.title);
         $('#actualImage').attr('src', image.src);
         $('#sortable').empty();
