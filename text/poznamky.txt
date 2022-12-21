@@ -1,1 +1,5 @@
 Tu budeme písať poznámky
+
+Puzzle hra plán:
+1.urobiť git (hotovo)
+2.
