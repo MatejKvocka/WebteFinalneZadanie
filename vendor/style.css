@@ -1,6 +1,5 @@
 body {
     font-family: 'Segoe UI', Calibri, Arial;
-    margin:0;
 	background-color:#728C8A;
 }
 h2{
@@ -12,6 +11,11 @@ h3{
     margin:3px 0px;
     text-align:center;
 }
+
+#collage {
+    margin-top: 75px;
+}
+
 #collage hr{
     border:none;
     height:1px;
