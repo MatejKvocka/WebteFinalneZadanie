@@ -82,3 +82,19 @@ h3{
     width: auto;
     padding: 3px 8px;
 }
+
+.footer {
+    margin-top: 120px;
+    padding-top: 20px;
+    bottom: 0;
+    left: 0;
+    right: 0;
+    padding: 1rem 1.5rem;
+    background: rgb(33,37,4);
+    color: white;
+    font-weight: 400;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    gap: 0.2rem;
+  }
