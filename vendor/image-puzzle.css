@@ -1,11 +1,10 @@
 #collage hr{
     border:none;
-    border-top:2px solid #f5f2f2;
     height:1px;
 }
 
 #collage #playPanel {
-    background-color:orange;
+    background-color:#C4F2EE;
     padding:10px 0px;
     margin: 10px auto;
     max-width:800px;
@@ -34,13 +33,11 @@
 }
 
 #collage img#actualImage{
-    border:2px solid #a46;
     height:280px;
     width:280px;
 }
 
 #collage #sortable {
-    border:2px solid #a46;
     list-style-type: none;
     display: inline-block;
     margin: 10px;
@@ -61,7 +58,6 @@
 
 #collage button  {
     background-color:#f5f2f2;
-    border:1px solid #cce;
     display: inline;
     font-size: 14px;
     height: auto;
