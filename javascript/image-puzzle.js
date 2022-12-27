@@ -1,36 +1,26 @@
-﻿        $.getJSON("fotkyJson.json", function(myJson) {
-            
-            var arr = [0, 1, 2, 3,4];
-            shuffle(arr)
+﻿var arr1 = [0, 1, 2, 3, 4];
+shuffle(arr1)
+var i = 0;
+var gridSize;
+$.getJSON("fotkyJson.json", function(myJson) {
 
-        var images = [
-            { src: myJson[arr[0]].filePath, title: myJson[0].nameOfPicture },
-            { src: myJson[arr[1]].filePath, title: myJson[1].nameOfPicture },
-            { src: myJson[arr[2]].filePath, title: myJson[2].nameOfPicture },
-            { src: myJson[arr[3]].filePath, title: myJson[3].nameOfPicture },
-            { src: myJson[arr[4]].filePath, title: myJson[4].nameOfPicture },
-        ];
+    var images = [
+        { src: myJson[arr1[0]].filePath, title: myJson[0].nameOfPicture },
+        { src: myJson[arr1[1]].filePath, title: myJson[1].nameOfPicture },
+        { src: myJson[arr1[2]].filePath, title: myJson[2].nameOfPicture },
+        { src: myJson[arr1[3]].filePath, title: myJson[3].nameOfPicture },
+        { src: myJson[arr1[4]].filePath, title: myJson[4].nameOfPicture },
+    ];
 
-        $(function () {
-            var i = 0;
+        gridSize = $('#levelPanel :radio:checked').val();   
+        imagePuzzle.startGame(images, gridSize,i);
+
+        $('#levelPanel :radio').change(function (e) {
             var gridSize = $('#levelPanel :radio:checked').val();
             imagePuzzle.startGame(images, gridSize,i);
-            $('#newPhoto').click(function () {
-                var gridSize = $('#levelPanel :radio:checked').val();
-                i = i+1;
-                if(parseInt(i)==5){
-                    i=0;
-                }
-
-                imagePuzzle.startGame(images, gridSize,i);
-            });
-
-            $('#levelPanel :radio').change(function (e) {
-                var gridSize = $('#levelPanel :radio:checked').val();
-                imagePuzzle.startGame(images, gridSize,i);
-            });
         });
-        });
+});
+
 
 var timerFunction;
 
@@ -43,6 +33,7 @@ var imagePuzzle = {
         $('#sortable').randomize();
         this.enableSwapping('#sortable li');
         this.stepCount = 0;
+        $('.stepCount').text(imagePuzzle.stepCount);
         this.startTime = new Date().getTime();
         this.tick();
     },
@@ -66,7 +57,7 @@ var imagePuzzle = {
 
                 currentList = $('#sortable > li').map(function (i, el) { return $(el).attr('data-value'); });
                 if (isSorted(currentList))
-                    $('#actualImageBox').empty().html($('#gameOver').html());
+                    openModal();
                 else {
                     var now = new Date().getTime();
                     imagePuzzle.stepCount++;
@@ -137,4 +128,43 @@ function shuffle(array) {
   
     return array;
   }
+
+  function nextImg(){
+    var modal = document.getElementById("myModal");
+    modal.style.display = "none";
+
+    $.getJSON("fotkyJson.json", function(myJson) {
+
+        var images = [
+            { src: myJson[arr1[0]].filePath, title: myJson[0].nameOfPicture },
+            { src: myJson[arr1[1]].filePath, title: myJson[1].nameOfPicture },
+            { src: myJson[arr1[2]].filePath, title: myJson[2].nameOfPicture },
+            { src: myJson[arr1[3]].filePath, title: myJson[3].nameOfPicture },
+            { src: myJson[arr1[4]].filePath, title: myJson[4].nameOfPicture },
+        ];
+
+            i = i+1;
+            if(parseInt(i)==5){
+                i=0;
+            }
+            imagePuzzle.startGame(images, gridSize,i);
+    });
+  }
+
+function openModal(){
+    var modal = document.getElementById("myModal");
+
+    var span = document.getElementsByClassName("close")[0];
+
+    modal.style.display = "block";
   
+    span.onclick = function() {
+    modal.style.display = "none";
+    }
+
+    window.onclick = function(event) {
+    if (event.target == modal) {
+        modal.style.display = "none";
+    }
+    }
+};
