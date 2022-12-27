@@ -1,4 +1,35 @@
-﻿var timerFunction;
+﻿$.getJSON("fotkyJson.json", function(myJson) {
+            
+    var images = [
+        { src: myJson[0].filePath, title: myJson[0].nameOfPicture },
+        { src: myJson[1].filePath, title: myJson[1].nameOfPicture },
+        { src: myJson[2].filePath, title: myJson[2].nameOfPicture },
+        { src: myJson[3].filePath, title: myJson[3].nameOfPicture },
+        { src: myJson[4].filePath, title: myJson[4].nameOfPicture },
+    ];
+
+    $(function () {
+        var i = 0;
+        var gridSize = $('#levelPanel :radio:checked').val();
+        imagePuzzle.startGame(images, gridSize,i);
+        $('#newPhoto').click(function () {
+            var gridSize = $('#levelPanel :radio:checked').val();
+            i = i+1;
+            if(parseInt(i)==5){
+                console.log("PICUS")
+                i=0;
+            }
+
+            imagePuzzle.startGame(images, gridSize,i);
+        });
+
+        $('#levelPanel :radio').change(function (e) {
+            imagePuzzle.startGame(images, gridSize,i);
+        });
+    });
+    });
+
+var timerFunction;
 
 var imagePuzzle = {
     stepCount: 0,
@@ -47,9 +78,7 @@ var imagePuzzle = {
     },
 
     setImage: function (images, gridSize,i) {
-        console.log(gridSize);
-        gridSize = gridSize || 4; // If gridSize is null or not passed, default it as 4.
-        console.log(gridSize);
+        gridSize = gridSize || 4;
         var percentage = 100 / (gridSize - 1);
         
         var image = images[i];
