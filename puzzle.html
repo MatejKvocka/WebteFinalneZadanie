@@ -52,46 +52,52 @@
                 <ul id="sortable" class="sortable"></ul>
                 <div id="actualImageBox">
                     <div id="stepBox">
-                        <div>Count:</div><div class="stepCount">0</div>
+                        <div>Počet ťahov:</div><div class="stepCount">0</div>
                     </div>
                     <div id="timeBox">
-                        Time: <span id="timerPanel"></span> seconds
+                        Čas: <span id="timerPanel"></span> sekúnd
                     </div>
                     <div class="imgDiv">
                         <img id="actualImage"/>
                     </div>
-                    <div>Solve the puzzle.</div>
+                    <div>Obtiažnosť:</div>
                     <p id="levelPanel">
-                        <input type="radio" name="level" id="easy" checked="checked" value="3" /> <label for="easy">Easy</label>
-                        <input type="radio" name="level" id="medium" value="4" /> <label for="medium">Medium</label>
-                        <input type="radio" name="level" id="hard" value="5" /> <label for="hard">Hard</label>
-						<input type="radio" name="level" id="veryhard" value="6" /> <label for="veryhard">Very Hard</label>
+                        <input type="radio" name="level" id="easy" checked="checked" value="3" /> <label for="easy">Ľahká</label>
+                        <input type="radio" name="level" id="medium" value="4"/> <label for="medium">Stredne ťažká</label>
+                        <input type="radio" name="level" id="hard" value="5"/> <label for="hard">ťažká</label>
                     </p>
                 </div>
             </div>
         </div>
 
-    <div id="myModal" class="modal">
-    <!-- Modal content -->
-    <div class="modal-content">
-        <span class="close">&times;</span>
-        <div id="gameOver">
-            <div style="background-color: #C4F2EE; padding: 5px 10px 20px 10px; text-align: center; ">
-                <h2 style="text-align:center">You win!</h2>
-                Congratulations!! <br />
-                <br />
-                Time: <span class="stepCount">0</span> gear.
-                <br />
-                Time spent: <span class="timeCount">0</span> seconds<br />
-                <div>
-                    <button id="playMore" type="button" class="btn" onclick="nextImg()">Next</button>
+        <div id="myModal" class="modal">
+        <div class="modal-content">
+            <span class="close">&times;</span>
+            <div id="gameOver">
+                <div style="background-color: #C4F2EE; padding: 5px 10px 20px 10px; text-align: center; ">
+                    <h2 style="text-align:center">Zložil si puzzle</h2>
+                    Gratulujeme!! <br/>
+                    <br />
+                    Počet ťahov: <span class="stepCount">0</span>
+                    <br />
+                    Čas: <span class="timeCount">0</span> sekúnd<br/>
+                    <div class="progressbar-wrapper">
+                        <ul id="progressbar" class="progressbar">
+                            <li>Level 1</li>
+                            <li>Level 2</li>
+                            <li>Level 3</li>
+                            <li>Level 4</li>
+                            <li>Level 5</li>
+                        </ul>
+                    </div>
+                    <div>
+                        <button id="playMore" type="button" class="btn" onclick="nextImg()">Ďalší level</button>
+                    </div>
                 </div>
             </div>
-        </div>
+            </div>
         </div>
     </div>
-    </div>
-
         
     </div>
 

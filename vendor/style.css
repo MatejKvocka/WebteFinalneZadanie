@@ -136,33 +136,33 @@ h3{
     transition: background-size 400ms;
   }
 
-  /* The Modal (background) */
 .modal {
-    display: none; /* Hidden by default */
-    position: fixed; /* Stay in place */
-    z-index: 1; /* Sit on top */
+    display: none;
+    position: fixed;
+    margin-top: 60px;
+    z-index: 1;
     left: 0;
     top: 0;
-    width: 100%; /* Full width */
-    height: 100%; /* Full height */
-    overflow: auto; /* Enable scroll if needed */
-    background-color: rgb(0,0,0); /* Fallback color */
-    background-color: rgba(0,0,0,0.4); /* Black w/ opacity */
+    width: 100%;
+    height: 100%;
+    overflow: auto;
+    background-color: rgb(0,0,0);
+    background-color: rgba(0,0,0,0.4);
   }
   
-  /* Modal Content/Box */
   .modal-content {
     background-color: #fefefe;
-    margin: 15% auto; /* 15% from the top and centered */
+    margin: 15% auto;
     padding: 20px;
     border: 1px solid #888;
-    width: 80%; /* Could be more or less, depending on screen size */
+    width: 80%;
   }
   
-  /* The Close Button */
   .close {
+    display: flex;
+    justify-content: right;
     color: #aaa;
-    float: right;
+    margin-right: 10px;
     font-size: 28px;
     font-weight: bold;
   }
@@ -174,7 +174,6 @@ h3{
     cursor: pointer;
   }
 
-  /* Modal Content */
 .modal-content {
     position: relative;
     background-color: #fefefe;
@@ -187,8 +186,83 @@ h3{
     animation-duration: 0.4s
   }
   
-  /* Add Animation */
   @keyframes animatetop {
     from {top: -300px; opacity: 0}
     to {top: 0; opacity: 1}
   }
+
+  .progressbar-wrapper {
+    background: #C4F2EE;
+    width: 100%;
+    margin-left: -19px;
+    padding-top: 10px;
+    padding-bottom: 5px;
+}
+
+.progressbar li {
+    list-style-type: none;
+    width: 20%;
+    float: left;
+    font-size: 12px;
+    position: relative;
+    text-align: center;
+    text-transform: uppercase;
+    color: #7d7d7d;
+}
+
+.progressbar li:before {
+    width: 60px;
+    height: 60px;
+    content: "";
+    line-height: 60px;
+    border: 2px solid #7d7d7d;
+    display: block;
+    text-align: center;
+    margin: 0 auto 3px auto;
+    border-radius: 50%;
+    position: relative;
+    z-index: 2;
+    background-color: #fff;
+}
+.progressbar li:after {
+     width: 100%;
+     height: 2px;
+     content: '';
+     position: absolute;
+     background-color: #7d7d7d;
+     top: 30px;
+     left: -50%;
+     z-index: 0;
+}
+.progressbar li:first-child:after {
+     content: none;
+}
+
+.progressbar li.active {
+    color: green;
+    font-weight: bold;  
+}
+.progressbar li.active:before {
+    border-color: #55b776;
+    background: green;
+ }
+.progressbar li.active + li:after {
+    background-color: #55b776;
+}
+
+.progressbar li.active:before {
+    background: #55b776  no-repeat center center;
+    background-size: 60%;
+}
+.progressbar li::before {
+    background: #fff no-repeat center center;   
+    background-size: 60%;
+}
+
+.progressbar {
+    counter-reset: step;
+}
+.progressbar li:before {
+    content: counter(step);
+    counter-increment: step; 
+}

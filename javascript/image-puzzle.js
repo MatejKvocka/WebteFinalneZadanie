@@ -56,8 +56,11 @@ var imagePuzzle = {
                 $(this).replaceAll(ui.draggable);
 
                 currentList = $('#sortable > li').map(function (i, el) { return $(el).attr('data-value'); });
-                if (isSorted(currentList))
+                if (isSorted(currentList)){
+                    const children = document.getElementById('progressbar').children;
+                    children.item(i).setAttribute('class','active');
                     openModal();
+                }
                 else {
                     var now = new Date().getTime();
                     imagePuzzle.stepCount++;
@@ -72,7 +75,7 @@ var imagePuzzle = {
     },
 
     setImage: function (images, gridSize,i) {
-        gridSize = gridSize || 4;
+        gridSize = gridSize || 3;
         var percentage = 100 / (gridSize - 1);
         
         var image = images[i];
@@ -136,11 +139,11 @@ function shuffle(array) {
     $.getJSON("fotkyJson.json", function(myJson) {
 
         var images = [
-            { src: myJson[arr1[0]].filePath, title: myJson[0].nameOfPicture },
-            { src: myJson[arr1[1]].filePath, title: myJson[1].nameOfPicture },
-            { src: myJson[arr1[2]].filePath, title: myJson[2].nameOfPicture },
-            { src: myJson[arr1[3]].filePath, title: myJson[3].nameOfPicture },
-            { src: myJson[arr1[4]].filePath, title: myJson[4].nameOfPicture },
+            { src: myJson[arr1[0]].filePath, title: myJson[arr1[0]].nameOfPicture },
+            { src: myJson[arr1[1]].filePath, title: myJson[arr1[1]].nameOfPicture },
+            { src: myJson[arr1[2]].filePath, title: myJson[arr1[2]].nameOfPicture },
+            { src: myJson[arr1[3]].filePath, title: myJson[arr1[3]].nameOfPicture },
+            { src: myJson[arr1[4]].filePath, title: myJson[arr1[4]].nameOfPicture },
         ];
 
             i = i+1;
