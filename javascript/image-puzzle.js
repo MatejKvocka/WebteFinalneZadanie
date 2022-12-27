@@ -5,11 +5,11 @@ var gridSize;
 $.getJSON("fotkyJson.json", function(myJson) {
 
     var images = [
-        { src: myJson[arr1[0]].filePath, title: myJson[0].nameOfPicture },
-        { src: myJson[arr1[1]].filePath, title: myJson[1].nameOfPicture },
-        { src: myJson[arr1[2]].filePath, title: myJson[2].nameOfPicture },
-        { src: myJson[arr1[3]].filePath, title: myJson[3].nameOfPicture },
-        { src: myJson[arr1[4]].filePath, title: myJson[4].nameOfPicture },
+        { src: myJson[arr1[0]].filePath, title: myJson[arr1[0]].nameOfPicture },
+        { src: myJson[arr1[1]].filePath, title: myJson[arr1[1]].nameOfPicture },
+        { src: myJson[arr1[2]].filePath, title: myJson[arr1[2]].nameOfPicture },
+        { src: myJson[arr1[3]].filePath, title: myJson[arr1[3]].nameOfPicture },
+        { src: myJson[arr1[4]].filePath, title: myJson[arr1[4]].nameOfPicture },
     ];
 
         gridSize = $('#levelPanel :radio:checked').val();   
