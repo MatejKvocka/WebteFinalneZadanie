@@ -1,33 +1,36 @@
-﻿$.getJSON("fotkyJson.json", function(myJson) {
+﻿        $.getJSON("fotkyJson.json", function(myJson) {
             
-    var images = [
-        { src: myJson[0].filePath, title: myJson[0].nameOfPicture },
-        { src: myJson[1].filePath, title: myJson[1].nameOfPicture },
-        { src: myJson[2].filePath, title: myJson[2].nameOfPicture },
-        { src: myJson[3].filePath, title: myJson[3].nameOfPicture },
-        { src: myJson[4].filePath, title: myJson[4].nameOfPicture },
-    ];
+            var arr = [0, 1, 2, 3,4];
+            shuffle(arr)
 
-    $(function () {
-        var i = 0;
-        var gridSize = $('#levelPanel :radio:checked').val();
-        imagePuzzle.startGame(images, gridSize,i);
-        $('#newPhoto').click(function () {
+        var images = [
+            { src: myJson[arr[0]].filePath, title: myJson[0].nameOfPicture },
+            { src: myJson[arr[1]].filePath, title: myJson[1].nameOfPicture },
+            { src: myJson[arr[2]].filePath, title: myJson[2].nameOfPicture },
+            { src: myJson[arr[3]].filePath, title: myJson[3].nameOfPicture },
+            { src: myJson[arr[4]].filePath, title: myJson[4].nameOfPicture },
+        ];
+
+        $(function () {
+            var i = 0;
             var gridSize = $('#levelPanel :radio:checked').val();
-            i = i+1;
-            if(parseInt(i)==5){
-                console.log("PICUS")
-                i=0;
-            }
-
             imagePuzzle.startGame(images, gridSize,i);
-        });
+            $('#newPhoto').click(function () {
+                var gridSize = $('#levelPanel :radio:checked').val();
+                i = i+1;
+                if(parseInt(i)==5){
+                    i=0;
+                }
 
-        $('#levelPanel :radio').change(function (e) {
-            imagePuzzle.startGame(images, gridSize,i);
+                imagePuzzle.startGame(images, gridSize,i);
+            });
+
+            $('#levelPanel :radio').change(function (e) {
+                var gridSize = $('#levelPanel :radio:checked').val();
+                imagePuzzle.startGame(images, gridSize,i);
+            });
         });
-    });
-    });
+        });
 
 var timerFunction;
 
@@ -119,3 +122,19 @@ $.fn.randomize = function (selector) {
     });
     return this;
 };
+
+function shuffle(array) {
+    let currentIndex = array.length,  randomIndex;
+  
+    while (currentIndex != 0) {
+  
+      randomIndex = Math.floor(Math.random() * currentIndex);
+      currentIndex--;
+  
+      [array[currentIndex], array[randomIndex]] = [
+        array[randomIndex], array[currentIndex]];
+    }
+  
+    return array;
+  }
+  
