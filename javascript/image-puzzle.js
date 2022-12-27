@@ -2,6 +2,7 @@
 shuffle(arr1)
 var i = 0;
 var gridSize;
+var done = false;
 $.getJSON("fotkyJson.json", function(myJson) {
 
     var images = [
@@ -59,7 +60,9 @@ var imagePuzzle = {
                 if (isSorted(currentList)){
                     const children = document.getElementById('progressbar').children;
                     children.item(i).setAttribute('class','active');
-                    openModal();
+                    if(done == false){
+                        openModal();
+                    }
                 }
                 else {
                     var now = new Date().getTime();
@@ -146,9 +149,33 @@ function shuffle(array) {
             { src: myJson[arr1[4]].filePath, title: myJson[arr1[4]].nameOfPicture },
         ];
 
-            i = i+1;
-            if(parseInt(i)==5){
-                i=0;
+        i = ++i;
+        if(parseInt(i)==5){
+            done=true;
+            i=0;
+            document.getElementById("btnDiv").style.display = "block";
+        }
+        imagePuzzle.startGame(images, gridSize,i);
+    });
+  }
+
+  function prevImg(){
+    var modal = document.getElementById("myModal");
+    modal.style.display = "none";
+
+    $.getJSON("fotkyJson.json", function(myJson) {
+
+        var images = [
+            { src: myJson[arr1[0]].filePath, title: myJson[arr1[0]].nameOfPicture },
+            { src: myJson[arr1[1]].filePath, title: myJson[arr1[1]].nameOfPicture },
+            { src: myJson[arr1[2]].filePath, title: myJson[arr1[2]].nameOfPicture },
+            { src: myJson[arr1[3]].filePath, title: myJson[arr1[3]].nameOfPicture },
+            { src: myJson[arr1[4]].filePath, title: myJson[arr1[4]].nameOfPicture },
+        ];
+
+            i = --i;
+            if(parseInt(i)<0){
+                i=4;
             }
             imagePuzzle.startGame(images, gridSize,i);
     });
