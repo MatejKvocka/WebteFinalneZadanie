@@ -33,20 +33,20 @@ $.getJSON("fotkyJson.json", function(myJson) {
         { src: myJson[arr1[4]].filePath, title: myJson[arr1[4]].nameOfPicture },
     ];
 
-        gridSize = $('#levelPanel :radio:checked').val();   
+        gridSize = $('#level :radio:checked').val();
         imagePuzzle.startGame(images, gridSize,i);
 
-        $('#levelPanel :radio').change(function (e) {
-            gridSize = $('#levelPanel :radio:checked').val();
+        $('#level :radio').change(function (e) {
+            gridSize = $('#level :radio:checked').val();
             imagePuzzle.startGame(images, gridSize,i);
         });
 });
 
 
-var timerFunction;
+var time;
 
 var imagePuzzle = {
-    stepCount: 0,
+    steps: 0,
     startTime: new Date().getTime(),
     startGame: function (images, gridSize, i) {
         if(done === 'true'){
@@ -57,8 +57,8 @@ var imagePuzzle = {
         $('#playPanel').show();
         $('#sortable').randomize();
         this.enableSwapping('#sortable li');
-        this.stepCount = 0;
-        $('.stepCount').text(imagePuzzle.stepCount);
+        this.steps = 0;
+        $('.stepCount').text(imagePuzzle.steps);
         this.startTime = new Date().getTime();
         this.tick();
     },
@@ -66,7 +66,7 @@ var imagePuzzle = {
         var now = new Date().getTime();
         var elapsedTime = parseInt((now - imagePuzzle.startTime) / 1000, 10);
         $('#timerPanel').text(elapsedTime);  
-        timerFunction = setTimeout(imagePuzzle.tick, 1000);
+        time = setTimeout(imagePuzzle.tick, 1000);
     },
     enableSwapping: function (elem) {
         $(elem).draggable({
@@ -87,7 +87,7 @@ var imagePuzzle = {
                     if(done === 'true'){
                         for(let j = 0; j < arr1.length; j++){
                             children.item(j).setAttribute('class','active');
-                            document.getElementById('doneDiv').style.display = "block";
+                            document.getElementById('doneDiv').style.display = "flex";
                         }
                     }else{
                         for(let j = 0; j <= i; j++){
@@ -97,8 +97,8 @@ var imagePuzzle = {
                 }
                 else {
                     var now = new Date().getTime();
-                    imagePuzzle.stepCount++;
-                    $('.stepCount').text(imagePuzzle.stepCount);
+                    imagePuzzle.steps++;
+                    $('.stepCount').text(imagePuzzle.steps);
                     $('.timeCount').text(parseInt((now - imagePuzzle.startTime) / 1000, 10));
                 }
 
