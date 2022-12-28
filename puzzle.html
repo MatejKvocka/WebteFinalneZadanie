@@ -61,17 +61,23 @@
                         <img id="actualImage"/>
                     </div>
                     <div>Obtiažnosť:</div>
-                    <p id="levelPanel">
+                    <p id="level">
                         <input type="radio" name="level" id="easy" checked="checked" value="3" /> <label for="easy">Ľahká</label>
                         <input type="radio" name="level" id="medium" value="4"/> <label for="medium">Stredne ťažká</label>
                         <input type="radio" name="level" id="hard" value="5"/> <label for="hard">ťažká</label>
                     </p>
                     <div id="btnDiv">
-                        <button id="nextImg" type="button" class="btn" onclick="nextImg()">Ďalší level</button>
                         <button id="prevImg" type="button" class="btn" onclick="prevImg()">Predchádzajúci level</button>
+                        <button id="nextImg" type="button" class="btn" onclick="nextImg()">Ďalší level</button>
                     </div>
                 </div>
             </div>
+        </div>
+
+        <div id="doneDiv" class="doneDiv">
+            <p>
+                Vyriešil si všetky puzzle!! Teraz si môžeš vyberať medzi všetkými a riešiť ich znova.
+            </p>
         </div>
 
         <div id="myModal" class="modal">
