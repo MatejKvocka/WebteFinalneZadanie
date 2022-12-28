@@ -277,6 +277,9 @@ h3{
 }
 
 .doneDiv{
+    margin-top: 2rem;
     display: none;
     justify-content: center;
+    color: rgb(221, 100, 73);
+    font-size: large;
 }
