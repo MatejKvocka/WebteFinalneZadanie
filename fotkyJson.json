@@ -1,27 +1,27 @@
 [
     {
         "fileId": "1",
-        "nameOfPicture": "pes",
+        "nameOfPicture": "Pes",
         "filePath": "fotky/pes.jpg"
     },
     {
         "fileId": "2",
-        "nameOfPicture": "osa",
+        "nameOfPicture": "Osa",
         "filePath": "fotky/osa.jpg"
     },
     {
         "fileId": "3",
-        "nameOfPicture": "gekon",
+        "nameOfPicture": "Gekon",
         "filePath": "fotky/gekon.jpg"
     },
     {
         "fileId": "4",
-        "nameOfPicture": "medved",
+        "nameOfPicture": "Medved",
         "filePath": "fotky/medved.jpg"
     },
     {
         "fileId": "5",
-        "nameOfPicture": "medvedik",
+        "nameOfPicture": "Medvedik",
         "filePath": "fotky/medvedik.jpg"
     }
 ]
