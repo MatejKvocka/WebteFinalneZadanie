@@ -18,7 +18,7 @@ if (localStorage.length == 0) {
     for(let i = 0; i < arr2[0].length;i++){
         arr1[i] = arr2[0][i];
     }
-    gridSize = localStorage.getItem("gridsize");
+    gridSize = parseInt(localStorage.getItem("gridSiye"), 10);
     i = parseInt(localStorage.getItem("i"), 10);
     done = localStorage.getItem("done");
   }
@@ -37,7 +37,7 @@ $.getJSON("fotkyJson.json", function(myJson) {
         imagePuzzle.startGame(images, gridSize,i);
 
         $('#levelPanel :radio').change(function (e) {
-            var gridSize = $('#levelPanel :radio:checked').val();
+            gridSize = $('#levelPanel :radio:checked').val();
             imagePuzzle.startGame(images, gridSize,i);
         });
 });
