@@ -51,6 +51,7 @@ var imagePuzzle = {
     startGame: function (images, gridSize, i) {
         if(done === 'true'){
             document.getElementById("btnDiv").style.display = "block";
+            document.getElementById('doneDiv').style.display = "flex";
           }
         this.setImage(images, gridSize,i);
         $('#playPanel').show();
@@ -82,9 +83,16 @@ var imagePuzzle = {
                 currentList = $('#sortable > li').map(function (i, el) { return $(el).attr('data-value'); });
                 if (isSorted(currentList)){
                     const children = document.getElementById('progressbar').children;
-                    children.item(i).setAttribute('class','active');
-                    if(done === 'false'){
-                        openModal();
+                    openModal();
+                    if(done === 'true'){
+                        for(let j = 0; j < arr1.length; j++){
+                            children.item(j).setAttribute('class','active');
+                            document.getElementById('doneDiv').style.display = "block";
+                        }
+                    }else{
+                        for(let j = 0; j <= i; j++){
+                            children.item(j).setAttribute('class','active');
+                        }
                     }
                 }
                 else {
