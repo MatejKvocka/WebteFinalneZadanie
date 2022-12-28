@@ -1,8 +1,28 @@
-﻿var arr1 = [0, 1, 2, 3, 4];
-shuffle(arr1)
-var i = 0;
-var gridSize;
-var done = false;
+﻿var arr1 = [];
+var gridSize = 3;
+var done;
+var i;
+
+if (localStorage.length == 0) {
+    arr1 = [0, 1, 2, 3, 4];
+    shuffle(arr1)
+    done = 'false';
+    i = 0;
+    localStorage.setItem("array", JSON.stringify(arr1));
+    localStorage.setItem("gridsize", gridSize);
+    localStorage.setItem("i", i);
+    localStorage.setItem("done", done);
+
+  }else{
+    var arr2 = JSON.parse("[" + localStorage.getItem("array") + "]");
+    for(let i = 0; i < arr2[0].length;i++){
+        arr1[i] = arr2[0][i];
+    }
+    gridSize = localStorage.getItem("gridsize");
+    i = parseInt(localStorage.getItem("i"), 10);
+    done = localStorage.getItem("done");
+  }
+
 $.getJSON("fotkyJson.json", function(myJson) {
 
     var images = [
@@ -29,6 +49,9 @@ var imagePuzzle = {
     stepCount: 0,
     startTime: new Date().getTime(),
     startGame: function (images, gridSize, i) {
+        if(done === 'true'){
+            document.getElementById("btnDiv").style.display = "block";
+          }
         this.setImage(images, gridSize,i);
         $('#playPanel').show();
         $('#sortable').randomize();
@@ -60,7 +83,7 @@ var imagePuzzle = {
                 if (isSorted(currentList)){
                     const children = document.getElementById('progressbar').children;
                     children.item(i).setAttribute('class','active');
-                    if(done == false){
+                    if(done === 'false'){
                         openModal();
                     }
                 }
@@ -78,7 +101,8 @@ var imagePuzzle = {
     },
 
     setImage: function (images, gridSize,i) {
-        gridSize = gridSize || 3;
+        localStorage.setItem("gridsize", gridSize);
+        gridSize = gridSize;
         var percentage = 100 / (gridSize - 1);
         
         var image = images[i];
@@ -150,9 +174,12 @@ function shuffle(array) {
         ];
 
         i = ++i;
+        localStorage.setItem("i", i);
         if(parseInt(i)==5){
-            done=true;
+            done='true';
+            localStorage.setItem("done", done);
             i=0;
+            localStorage.setItem("i", i);
             document.getElementById("btnDiv").style.display = "block";
         }
         imagePuzzle.startGame(images, gridSize,i);
@@ -174,8 +201,10 @@ function shuffle(array) {
         ];
 
             i = --i;
+            localStorage.setItem("i", i);
             if(parseInt(i)<0){
                 i=4;
+                localStorage.setItem("i", i);
             }
             imagePuzzle.startGame(images, gridSize,i);
     });
