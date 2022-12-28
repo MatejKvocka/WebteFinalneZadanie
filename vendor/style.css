@@ -270,3 +270,8 @@ h3{
 #btnDiv{
     display: none;
 }
+@media print{
+    .no-print{
+        display: none;!important;
+    }
+}
