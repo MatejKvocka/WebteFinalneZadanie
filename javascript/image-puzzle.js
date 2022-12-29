@@ -2,6 +2,7 @@
 var gridSize = 3;
 var done;
 var i;
+var size = 400;
 
 if (localStorage.length == 0) {
     arr1 = [0, 1, 2, 3, 4];
@@ -34,21 +35,21 @@ $.getJSON("fotkyJson.json", function(myJson) {
     ];
 
         gridSize = $('#level :radio:checked').val();
-        imagePuzzle.startGame(images, gridSize,i);
+        puzzle.init(images, gridSize,i);
 
         $('#level :radio').change(function (e) {
             gridSize = $('#level :radio:checked').val();
-            imagePuzzle.startGame(images, gridSize,i);
+            puzzle.init(images, gridSize,i);
         });
 });
 
 
 var time;
 
-var imagePuzzle = {
+var puzzle = {
     steps: 0,
     startTime: new Date().getTime(),
-    startGame: function (images, gridSize, i) {
+    init: function (images, gridSize, i) {
         if(done === 'true'){
             document.getElementById("btnDiv").style.display = "block";
             document.getElementById('doneDiv').style.display = "flex";
@@ -58,15 +59,15 @@ var imagePuzzle = {
         $('#sortable').randomize();
         this.enableSwapping('#sortable li');
         this.steps = 0;
-        $('.stepCount').text(imagePuzzle.steps);
+        $('.stepCount').text(puzzle.steps);
         this.startTime = new Date().getTime();
         this.tick();
     },
     tick: function () {
         var now = new Date().getTime();
-        var elapsedTime = parseInt((now - imagePuzzle.startTime) / 1000, 10);
+        var elapsedTime = parseInt((now - puzzle.startTime) / 1000, 10);
         $('#timerPanel').text(elapsedTime);  
-        time = setTimeout(imagePuzzle.tick, 1000);
+        time = setTimeout(puzzle.tick, 1000);
     },
     enableSwapping: function (elem) {
         $(elem).draggable({
@@ -97,13 +98,13 @@ var imagePuzzle = {
                 }
                 else {
                     var now = new Date().getTime();
-                    imagePuzzle.steps++;
-                    $('.stepCount').text(imagePuzzle.steps);
-                    $('.timeCount').text(parseInt((now - imagePuzzle.startTime) / 1000, 10));
+                    puzzle.steps++;
+                    $('.stepCount').text(puzzle.steps);
+                    $('.timeCount').text(parseInt((now - puzzle.startTime) / 1000, 10));
                 }
 
-                imagePuzzle.enableSwapping(this);
-                imagePuzzle.enableSwapping($dragElem);
+                puzzle.enableSwapping(this);
+                puzzle.enableSwapping($dragElem);
             }
         });
     },
@@ -124,8 +125,8 @@ var imagePuzzle = {
                 'background-image': 'url(' + image.src + ')',
                 'background-size': (gridSize * 100) + '%',
                 'background-position': xpos + ' ' + ypos,
-                'width': 400 / gridSize,
-                'height': 400 / gridSize
+                'width': size / (gridSize),
+                'height': size / (gridSize)
             });
             $('#sortable').append(li);
         }
@@ -190,7 +191,7 @@ function shuffle(array) {
             localStorage.setItem("i", i);
             document.getElementById("btnDiv").style.display = "block";
         }
-        imagePuzzle.startGame(images, gridSize,i);
+        puzzle.init(images, gridSize,i);
     });
   }
 
@@ -214,7 +215,7 @@ function shuffle(array) {
                 i=4;
                 localStorage.setItem("i", i);
             }
-            imagePuzzle.startGame(images, gridSize,i);
+            puzzle.init(images, gridSize,i);
     });
   }
 
@@ -235,3 +236,37 @@ function openModal(){
     }
     }
 };
+
+function myFunction(x) {
+    if (x.matches) {
+      size = 320;
+      $.getJSON("fotkyJson.json", function(myJson) {
+
+        var images = [
+            { src: myJson[arr1[0]].filePath, title: myJson[arr1[0]].nameOfPicture },
+            { src: myJson[arr1[1]].filePath, title: myJson[arr1[1]].nameOfPicture },
+            { src: myJson[arr1[2]].filePath, title: myJson[arr1[2]].nameOfPicture },
+            { src: myJson[arr1[3]].filePath, title: myJson[arr1[3]].nameOfPicture },
+            { src: myJson[arr1[4]].filePath, title: myJson[arr1[4]].nameOfPicture },
+        ];
+            puzzle.init(images, gridSize,i);
+    });
+    } else {
+        size = 400;
+      $.getJSON("fotkyJson.json", function(myJson) {
+
+        var images = [
+            { src: myJson[arr1[0]].filePath, title: myJson[arr1[0]].nameOfPicture },
+            { src: myJson[arr1[1]].filePath, title: myJson[arr1[1]].nameOfPicture },
+            { src: myJson[arr1[2]].filePath, title: myJson[arr1[2]].nameOfPicture },
+            { src: myJson[arr1[3]].filePath, title: myJson[arr1[3]].nameOfPicture },
+            { src: myJson[arr1[4]].filePath, title: myJson[arr1[4]].nameOfPicture },
+        ];
+            puzzle.init(images, gridSize,i);
+    });
+    }
+  }
+  
+  var x = window.matchMedia("(max-width: 801px)")
+  myFunction(x)
+  x.addListener(myFunction)

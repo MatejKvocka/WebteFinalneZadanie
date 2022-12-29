@@ -12,58 +12,69 @@ h3{
     text-align:center;
 }
 
-#collage {
+#mainContainer{
     margin-top: 75px;
 }
 
-#collage hr{
+#mainContainer hr{
     border:none;
     height:1px;
 }
 
-#collage #playPanel {
+#mainContainer #playPanel {
     background-color:#C4F2EE;
     padding:10px 0px;
     margin: 10px auto;
-    max-width:800px;
-    width:95%;
+    max-width:820px;
 }
 
-#collage #actualImageBox {
+#mainContainer #actualImageBox {
     display: inline-block;
     font-size:0.8em;
     margin: 10px 10px;
     vertical-align: top;
-    width:280px;
+    width:320px;
 }
 
-#collage #stepBox, #collage #timeBox {
+#mainContainer #stepBox, #mainContainer #timeBox {
     display:inline-block;
     width:48%;
 }
 
-#collage #stepBox div {
+#mainContainer #stepBox div {
     background-color:#c2defc;
     display:inline-block;
     padding:1px 4px;
     margin: 0px auto;
-    max-width:800px;
+    max-width:820px;
 }
 
-#collage img#actualImage{
-    height:280px;
-    width:280px;
+#mainContainer img#actualImage{
+    height:320px;
+    width:320px;
 }
 
-#collage #sortable {
+#mainContainer #sortable {
     list-style-type: none;
     display: inline-block;
     margin: 10px;
     padding: 0;
     width: 400px;
+    height: 400px;
 }
 
-#collage #sortable li {
+@media only screen and (max-width: 801px) {
+    #mainContainer #sortable {
+        list-style-type: none;
+        display: inline-block;
+        margin: 10px;
+        padding: 0;
+        width: 320px;
+        height: 320px;
+    }
+  }
+
+#mainContainer #sortable li {
     background-size: 400% 400%;
     border: none;
     cursor: pointer;
@@ -74,7 +85,7 @@ h3{
     height: 100px;
 }
 
-#collage button {
+#mainContainer button {
     background-color: #f5f2f2;
     display: inline;
     font-size: 14px;
@@ -272,7 +283,19 @@ h3{
 }
 @media print{
     .no-print{
-        display: none!important;
+        display: none !important;
+    }
+
+    .logoImg{
+        display: flex !important;
+        justify-content: center !important;
+    }
+
+    img {
+        width: 400px !important;
+    }
+    #mainContainer{
+        margin-top: 0 !important;
     }
 }
 
