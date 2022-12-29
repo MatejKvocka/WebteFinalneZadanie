@@ -283,7 +283,19 @@ h3{
 }
 @media print{
     .no-print{
-        display: none!important;
+        display: none !important;
+    }
+
+    .logoImg{
+        display: flex !important;
+        justify-content: center !important;
+    }
+
+    img {
+        width: 400px !important;
+    }
+    #mainContainer{
+        margin-top: 0 !important;
     }
 }
 
