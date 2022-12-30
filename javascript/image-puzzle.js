@@ -53,7 +53,8 @@ var puzzle = {
         if(done === 'true'){
             document.getElementById("btnDiv").style.display = "block";
             document.getElementById('doneDiv').style.display = "flex";
-          }
+            window.addEventListener('deviceorientation', handleOrientation);
+        }
         this.setImage(images, gridSize,i);
         $('#playPanel').show();
         $('#sortable').randomize();
@@ -270,3 +271,16 @@ function myFunction(x) {
   var x = window.matchMedia("(max-width: 801px)")
   myFunction(x)
   x.addListener(myFunction)
+
+
+function handleOrientation(event){
+    //var output=document.getElementById("output");
+    //simpleOutput(event, output);
+    if (event["gamma"]>80){
+        nextImg();
+    }
+    if (event["gamma"]<-80){
+        prevImg();
+    }
+}
+
