@@ -283,4 +283,6 @@ function handleOrientation(event){
         prevImg();
     }
 }
-
+if ("serviceWorker" in navigator){
+navigator.serviceWorker.register("serviceworker.js");
+}
