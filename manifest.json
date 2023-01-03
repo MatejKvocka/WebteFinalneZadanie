@@ -1,0 +1,44 @@
+{
+  "name": "Puzzle Game",
+  "short_name": "Puzzle",
+  "theme_color": "#ffcbe4",
+  "background_color": "#fa99ca",
+  "display": "standalone",
+  "scope": "/",
+  "start_url": "https://webte1.fei.stuba.sk/~xkvockam/zad1_897/WebteFinalneZadanie/WebteFinalneZadanie/index.html",
+  "description": "Puzzle Game made by Kvočka and Matúška",
+  "orientation": "any",
+  "prefer_related_applications": true,
+  "icons": [
+    {
+      "src": "windows11/SmallTile.scale-100.png",
+      "sizes": "71x71"
+    },
+    {
+      "src": "windows11/SmallTile.scale-125.png",
+      "sizes": "89x89"
+    },
+    {
+      "src": "windows11/SmallTile.scale-150.png",
+      "sizes": "107x107"
+    },
+    {
+      "src": "windows11/SmallTile.scale-200.png",
+      "sizes": "142x142"
+    },
+    {
+      "src": "windows11/SmallTile.scale-400.png",
+      "sizes": "284x284"
+    },
+    {
+      "src": "windows11/Square150x150Logo.scale-100.png",
+      "sizes": "150x150"
+    },
+    {
+      "src": "windows11/Wide310x150Logo.scale-100.png",
+      "sizes": "310x150",
+      "purpose": "any maskable"
+    }
+
+      ]
+}
