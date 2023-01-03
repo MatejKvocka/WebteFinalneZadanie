@@ -5,7 +5,7 @@
   "background_color": "#fa99ca",
   "display": "standalone",
   "scope": "/",
-  "start_url": "https://webte1.fei.stuba.sk/~xkvockam/zad1_897/WebteFinalneZadanie/WebteFinalneZadanie/index.html",
+  "start_url": "./index.html",
   "description": "Puzzle Game made by Kvočka and Matúška",
   "orientation": "any",
   "prefer_related_applications": true,
