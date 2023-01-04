@@ -11,11 +11,10 @@
     <link rel="icon" type="image/png" sizes="32x32" href="favicon/favicon-32x32.png">
     <link rel="icon" type="image/png" sizes="16x16" href="favicon/favicon-16x16.png">
     <link rel="manifest" href="manifest.json">
-    <script src="//code.jquery.com/jquery.min.js"></script>
+    <script src="https://code.jquery.com/jquery.min.js"></script>
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.2.2/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-Zenh87qX5JnK2Jl0vWa8Ck2rdkQ2Bzep5IDxbcnCeuOxjzrPF/et3URy9Bv1WTRi" crossorigin="anonymous">  
     <script defer src="https://cdn.jsdelivr.net/npm/bootstrap@5.2.2/dist/js/bootstrap.bundle.min.js" integrity="sha384-OERcA2EqjJCMA+/3y+gxIOqMEjwtxJY7qPCqsdltbNJuaOe923+mo//f6V8Qbsw3" crossorigin="anonymous"></script>  
     <script src="javascript/jquery-ui.js"></script>
-    <script src="javascript/image-puzzle.js"></script>
     <script src="javascript/jquery.ui.touch-punch.min.js"></script>
     <title>Puzzle</title>
 </head>
@@ -25,13 +24,13 @@
         <nav class="navbar navbar-dark bg-dark fixed-top">
             <div class="container-fluid">
               <a class="navbar-brand" href="index.html">Domov</a>
-              <button class="navbar-toggler" type="button" data-bs-toggle="offcanvas" data-bs-target="#offcanvasDarkNavbar" aria-controls="offcanvasDarkNavbar">
+              <button name="navBar" class="navbar-toggler" type="button" data-bs-toggle="offcanvas" data-bs-target="#offcanvasDarkNavbar" aria-controls="offcanvasDarkNavbar">
                 <span class="navbar-toggler-icon"></span>
               </button>
               <div class="offcanvas offcanvas-end text-bg-dark" tabindex="-1" id="offcanvasDarkNavbar" aria-labelledby="offcanvasDarkNavbarLabel">
                 <div class="offcanvas-header">
                   <h5 class="offcanvas-title" id="offcanvasDarkNavbarLabel">Puzzle</h5>
-                  <button type="button" class="btn-close btn-close-white" data-bs-dismiss="offcanvas" aria-label="Close"></button>
+                  <button name="navBar" type="button" class="btn-close btn-close-white" data-bs-dismiss="offcanvas" aria-label="Close"></button>
                 </div>
                 <div class="offcanvas-body">
                   <ul class="navbar-nav justify-content-end flex-grow-1 pe-3">
@@ -51,16 +50,18 @@
     <div id="mainContainer">
         <h2>Image Mania puzzle</h2>
         <hr />
-        <div id="playPanel" style="padding:5px;display:none;">
+        <div id="playPanel">
             <h3 id="imgTitle"></h3> <hr/>   
             <div>
                 <ul id="sortable" class="sortable"></ul>
                 <div id="actualImageBox">
-                    <div id="stepBox">
-                        <div>Počet ťahov:</div><div class="stepCount">0</div>
-                    </div>
-                    <div id="timeBox">
-                        Čas: <span id="timerPanel"></span> sekúnd
+                    <div class="timeDiv">
+                        <div id="stepBox">
+                            <div>Počet ťahov:</div><div class="stepCount">0</div>
+                        </div>
+                        <div id="timeBox">
+                            Čas: <span id="timerPanel"></span> sekúnd
+                        </div>
                     </div>
                     <div class="imgDiv">
                         <img id="actualImage"/>
@@ -121,8 +122,9 @@
     </footer>
 <script>
     if ("serviceWorker" in navigator){
-        navigator.serviceWorker.register("/serviceworker.js");
+        navigator.serviceWorker.register("./serviceworker.js");
     }
 </script>
+<script src="javascript/image-puzzle.js"></script>
 </body>
 </html>

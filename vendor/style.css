@@ -5,6 +5,10 @@ body {
 h2{
     font-weight:normal;
     text-align:center;
+    background-image: linear-gradient(to bottom left, #553c9a, #ee4b2b);
+    color: transparent;
+    background-clip: text;
+    -webkit-background-clip: text;
 }
 h3{
     font-weight:normal;
@@ -116,7 +120,7 @@ h3{
     width: 25%;
     min-height: 6.5em;
     margin: 1rem 0 0 1rem;
-    background-color: #29e;
+    background-color: #C4F2EE;
     color: white;
     border-radius: 0.75em;
     padding: 4%;
@@ -307,4 +311,8 @@ h3{
     justify-content: center;
     color: rgb(221, 100, 73);
     font-size: large;
+}
+
+.timeDiv{
+    background-color: #F291A3;
 }

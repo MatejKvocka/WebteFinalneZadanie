@@ -14,7 +14,6 @@
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.2.2/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-Zenh87qX5JnK2Jl0vWa8Ck2rdkQ2Bzep5IDxbcnCeuOxjzrPF/et3URy9Bv1WTRi" crossorigin="anonymous">  
     <script defer src="https://cdn.jsdelivr.net/npm/bootstrap@5.2.2/dist/js/bootstrap.bundle.min.js" integrity="sha384-OERcA2EqjJCMA+/3y+gxIOqMEjwtxJY7qPCqsdltbNJuaOe923+mo//f6V8Qbsw3" crossorigin="anonymous"></script>
     <script src="https://cdn.jsdelivr.net/npm/interactjs/dist/interact.min.js"></script>
-    <script src="javascript/image-puzzle.js"></script>
     <title>O hre</title>
 </head>
 <body>
@@ -25,13 +24,13 @@
                 <button class="btn btn-dark ml-auto" onclick="window.print()">
                     <i class="fa fa-print"></i> Print Page
                 </button>
-                <button class="navbar-toggler" type="button" data-bs-toggle="offcanvas" data-bs-target="#offcanvasDarkNavbar" aria-controls="offcanvasDarkNavbar">
+                <button name="navBar" class="navbar-toggler" type="button" data-bs-toggle="offcanvas" data-bs-target="#offcanvasDarkNavbar" aria-controls="offcanvasDarkNavbar">
                 <span class="navbar-toggler-icon"></span>
               </button>
               <div class="offcanvas offcanvas-end text-bg-dark" tabindex="-1" id="offcanvasDarkNavbar" aria-labelledby="offcanvasDarkNavbarLabel">
                 <div class="offcanvas-header">
                   <h5 class="offcanvas-title" id="offcanvasDarkNavbarLabel">Puzzle</h5>
-                  <button type="button" class="btn-close btn-close-white" data-bs-dismiss="offcanvas" aria-label="Close"></button>
+                  <button name="navBar" type="button" class="btn-close btn-close-white" data-bs-dismiss="offcanvas" aria-label="Close"></button>
                 </div>
                 <div class="offcanvas-body">
                   <ul class="navbar-nav justify-content-end flex-grow-1 pe-3">
@@ -72,9 +71,14 @@
             <h2>Návod</h2>
         </div>
         <div>   
-            <p>
-                "But I must explain to you how all this mistaken idea of denouncing pleasure and praising pain was born and I will give you a complete account of the system, and expound the actual teachings of the great explorer of the truth, the master-builder of human happiness. No one rejects, dislikes, or avoids pleasure itself, because it is pleasure, but because those who do not know how to pursue pleasure rationally encounter consequences that are extremely painful. Nor again is there anyone who loves or pursues or desires to obtain pain of itself, because it is pain, but because occasionally circumstances occur in which toil and pain can procure him some great pleasure. To take a trivial example, which of us ever undertakes laborious physical exercise, except to obtain some advantage from it? But who has any right to find fault with a man who chooses to enjoy a pleasure that has no annoying consequences, or one who avoids a pain that produces no resultant pleasure?"
-            </p>
+            <ol>
+                <li>Hra pozostáva z poľa puzzle, pričom každý dielik obsahuje časť obrázka.</li>
+                <li>Cieľom hráča je zmeniť usporiadanie dielikov puzzle tak, aby sa správne vytvoril pôvodný obrázok.</li>
+                <li>Hráč môže presúvať dieliky puzzle kliknutím a ťahaním na nové miesto v poli.</li>
+                <li>Hráč sa môže rozhodnúť hrať s rôznymi úrovňami obtiažnosti("ťažká", "stredne ťažká", "ťažká"), čo ovplyvní veľkosť mriežky puzzle a počet dielikov, ktoré má pole.</li>
+                <li>Hra je u konca, keď hráč správne usporiadal všetky dieliky puzzle. Po úspešnom zložení sa objaví okno kde sa zobrazí progres v hre.</li>
+                <li>Hra má 5 levelov. Po úspešnom dokončení všetkých 5 levelov sa zobrazia hráčovi tačidlá, ktorými si medzi levelami vie prepínať. Medzi levelami môže prepínať aj naklonením mobilu.  </li>
+              </ol>
         </div>
     </div>
 
@@ -90,7 +94,7 @@
     </footer>
     <script>
         if ("serviceWorker" in navigator){
-            navigator.serviceWorker.register("/serviceworker.js");
+            navigator.serviceWorker.register("./serviceworker.js");
         }
     </script>
 </body>
